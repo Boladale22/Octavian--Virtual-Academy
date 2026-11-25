@@ -1,2 +1,915 @@
 # Octavian--Virtual-Academy
-Official website for Octavian -Virtual-Academy 
+Official website for Octavian -Virtual-Academy
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Octavian Virtual Academy | Online Mathematics Tutoring</title>
+
+    <style>
+
+        /* GENERAL SETTINGS */
+
+        :root {
+            --forest: #12352b;
+            --green: #1c4d3f;
+            --cream: #f6f5f0;
+            --white: #ffffff;
+            --gold: #e6b84c;
+            --ink: #152620;
+            --muted: #586b63;
+            --border: #dde4e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* NAVIGATION */
+
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 12px 0;
+        }
+
+        .logo {
+            color: var(--forest);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--forest);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #bd8b20;
+        }
+
+        .nav-button {
+            background: var(--forest);
+            color: white !important;
+            padding: 9px 15px;
+            border-radius: 6px;
+        }
+
+
+        /* BUTTONS */
+
+        .button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--forest);
+            padding: 14px 23px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #d7a637;
+            transform: translateY(-2px);
+        }
+
+
+        /* HOMEPAGE */
+
+        .hero {
+            background: linear-gradient(120deg, #12352b, #1c4d3f);
+            color: white;
+            padding: 100px 0;
+        }
+
+        .hero-content {
+            max-width: 780px;
+        }
+
+        .hero-label {
+            color: var(--gold);
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 58px);
+            line-height: 1.2;
+            margin: 20px 0;
+        }
+
+        .hero p {
+            color: #e2ece7;
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 8px 17px;
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 30px;
+            font-size: 14px;
+        }
+
+        .hero-contact {
+            margin-top: 28px;
+        }
+
+        .hero-contact p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        .hero-contact a {
+            color: var(--gold);
+        }
+
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading h2 {
+            color: var(--forest);
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 23px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            color: var(--forest);
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+
+        /* PRICING */
+
+        .pricing {
+            background: #eef2ed;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .price-card {
+            background: white;
+            padding: 35px;
+            text-align: center;
+            border-radius: 13px;
+            border: 2px solid var(--border);
+        }
+
+        .price-card.featured {
+            border-color: var(--gold);
+        }
+
+        .price-card h3 {
+            color: var(--forest);
+            font-size: 22px;
+        }
+
+        .price {
+            color: var(--forest);
+            font-size: 40px;
+            font-weight: bold;
+            margin: 20px 0 5px;
+        }
+
+        .price-card p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+
+        /* CURRICULUM */
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .curriculum-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            border-top: 5px solid var(--gold);
+        }
+
+        .curriculum-card h3 {
+            color: var(--forest);
+            margin-bottom: 12px;
+        }
+
+        .curriculum-card ul {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .curriculum-card li {
+            margin: 8px 0;
+        }
+
+
+        /* WHY CHOOSE US */
+
+        .why {
+            background: var(--forest);
+            color: white;
+        }
+
+        .why .section-heading h2 {
+            color: white;
+        }
+
+        .why .section-heading p {
+            color: #e0e9e4;
+        }
+
+        .why .card {
+            background: var(--green);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .why .card h3 {
+            color: var(--gold);
+        }
+
+        .why .card p {
+            color: #e0e9e4;
+        }
+
+
+        /* REVIEWS */
+
+        .review {
+            border-left: 4px solid var(--gold);
+        }
+
+        .review strong {
+            display: block;
+            margin-top: 18px;
+            color: var(--forest);
+        }
+
+
+        /* FAQ */
+
+        .faq-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        details {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+        }
+
+        summary {
+            cursor: pointer;
+            color: var(--forest);
+            font-weight: bold;
+        }
+
+        details p {
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+
+        /* BOOKING FORM */
+
+        .booking {
+            background: #eef2ed;
+        }
+
+        .booking-box {
+            background: white;
+            max-width: 750px;
+            margin: auto;
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        }
+
+        .booking-box h2 {
+            color: var(--forest);
+            margin-bottom: 10px;
+        }
+
+        .booking-box > p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: 2px solid var(--gold);
+        }
+
+        .submit-button {
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+            color: var(--muted);
+        }
+
+        .contact-info a {
+            color: var(--forest);
+            font-weight: bold;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: var(--forest);
+            color: white;
+            padding: 45px 0 20px;
+            text-align: center;
+        }
+
+        footer h2 {
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: #e0e9e4;
+            margin: 9px 0;
+        }
+
+        footer a {
+            color: var(--gold);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 25px;
+            padding-top: 20px;
+            font-size: 13px;
+        }
+
+
+        /* MOBILE DESIGN */
+
+        @media (max-width: 800px) {
+
+            nav {
+                justify-content: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .grid,
+            .pricing-grid,
+            .curriculum-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-heading h2 {
+                font-size: 28px;
+            }
+
+            .booking-box {
+                padding: 23px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <header>
+
+        <div class="container">
+
+            <nav>
+
+                <a href="#home" class="logo">
+                    OCTAVIAN <span>VIRTUAL ACADEMY</span>
+                </a>
+
+                <div class="nav-links">
+
+                    <a href="#home">Home</a>
+
+                    <a href="#curriculums">Curriculums</a>
+
+                    <a href="#pricing">Pricing</a>
+
+                    <a href="#why-us">Why Us</a>
+
+                    <a href="#reviews">Reviews</a>
+
+                    <a href="#faqs">FAQs</a>
+
+                    <a href="#booking" class="nav-button">
+                        Book Now
+                    </a>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- HOMEPAGE -->
+
+    <section class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    ONE-ON-ONE ONLINE MATHEMATICS
+                </div>
+
+                <h1>
+                    Building Confidence Through Mathematics
+                </h1>
+
+                <p>
+                    Personalized online mathematics lessons that
+                    help students understand difficult concepts,
+                    strengthen their problem-solving skills and
+                    achieve academic excellence.
+
+                    We prepare students for WAEC, NECO, JAMB,
+                    BECE, IGCSE, GCSE, SAT, Checkpoint and A-Level.
+                </p>
+
+                <a href="#booking" class="button">
+                    Book Free 30-Min Assessment →
+                </a>
+
+                <div class="hero-tag">
+                    Grades 7–12 • JSS1–SS3 • Online Classes
+                </div>
+
+                <div class="hero-contact">
+
+                    <p>
+                        📞 WhatsApp:
+                        const whatsappURL  = "2349125295297";
+                        </>
+                    </p>
+
+                    <p>
+                        ✉️ Email:
+                        <a href="mailto:toyobaby41@gmail.com">
+                            toyobaby41@gmail.com
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- LEARNING EXPERIENCE -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>A Better Way to Learn Mathematics</h2>
+
+                <p>
+                    We make mathematics easier through structured,
+                    interactive and personalized learning.
+                </p>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="card">
+
+                    <div class="icon">💻</div>
+
+                    <h3>Interactive Tutoring</h3>
+
+                    <p>
+                        Live online lessons, screen-sharing and
+                        step-by-step explanations tailored to
+                        each student's learning pace.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">📚</div>
+
+                    <h3>Curriculum Resources</h3>
+
+                    <p>
+                        Structured study guides, geometry concepts,
+                        past-question drills and targeted practice.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">📊</div>
+
+                    <h3>Student Progress</h3>
+
+                    <p>
+                        Regular topic assessments, performance
+                        tracking and progress updates.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PRICING -->
+
+    <section class="pricing" id="pricing">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Our Tuition Fees</h2>
+
+                <p>
+                    Quality mathematics education with personalized
+                    attention for every student.
+                </p>
+
+            </div>
+
+
+            <div class="pricing-grid">
+
+                <div class="price-card featured">
+
+                    <h3>Nigerian Students 🇳🇬</h3>
+
+                    <div class="price">₦10,000</div>
+
+                    <p>Per hour</p>
+
+                    <p>
+                        Personalized mathematics lessons for
+                        Nigerian curriculum students.
+                    </p>
+
+                    <a href="#booking" class="button">
+                        Book a Session
+                    </a>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <h3>International Students 🌍</h3>
+
+                    <div class="price">$20</div>
+
+                    <p>Per hour</p>
+
+                    <p>
+                        Personalized mathematics lessons for
+                        international curriculum students.
+                    </p>
+
+                    <a href="#booking" class="button">
+                        Book a Session
+                    </a><section id="booking" class="booking-section">
+    <div class="booking-container">    <h2>Book Your Mathematics Lesson</h2>
+
+    <p>
+        Take the first step towards academic excellence.
+        Book a free assessment or schedule a paid lesson.
+    </p>
+
+    <form id="bookingForm">
+
+        <label>Student's Full Name</label>
+        <input type="text" id="studentName"
+        placeholder="Enter your full name" required>
+
+        <label>Email Address</label>
+        <input type="email" id="studentEmail"
+        placeholder="Enter your email" required>
+
+        <label>Class / Grade</label>
+        <select id="studentGrade" required>
+            <option value="">Select your grade</option>
+            <option>Grade 7</option>
+            <option>Grade 8</option>
+            <option>Grade 9</option>
+            <option>Grade 10</option>
+            <option>Grade 11</option>
+            <option>Grade 12</option>
+        </select>
+
+        <label>Subject</label>
+        <select id="studentSubject" required>
+            <option value="">Select subject</option>
+            <option>Mathematics</option>
+            <option>Further Mathematics</option>
+            <option>Statistics</option>
+            <option>SAT Mathematics</option>
+        </select>
+
+        <label>Booking Type</label>
+        <select id="bookingType" required>
+            <option value="">Choose booking type</option>
+            <option value="Free 30-Minute Assessment">
+                Free 30-Minute Assessment
+            </option>
+            <option value="Paid Lesson">
+                Paid Lesson
+            </option>
+        </select>
+
+        <label>Preferred Date</label>
+        <input type="date" id="bookingDate" required>
+
+        <label>Preferred Time</label>
+        <input type="time" id="bookingTime" required>
+
+        <button type="submit" class="booking-btn">
+            Submit Booking via WhatsAppconst whatsappURL =
+    "https://api.whatsapp.com/send?phone=" +
+    phone + "&text=" + message;
+
+window.location.href = whatsappURL;
+        </button>
+
+    </form>
+
+    <div class="booking-prices">
+        <h3>Our Lesson Rates</h3>
+        <p>Nigerian Students: ₦10,000 per hour</p>
+        <p>International Students: $20 per hour</p>
+    </div>
+
+</div>
+
+</section><style>
+.booking-section {
+    padding: 50px 20px;
+    background: #f4f7fb;
+}
+
+.booking-container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.booking-container h2 {
+    text-align: center;
+    color: #12345a;
+}
+
+.booking-container p {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.booking-container label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.booking-container input,
+.booking-container select {
+    width: 100%;
+    padding: 13px;
+    margin-top: 7px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+.booking-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    background: #12345a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.booking-prices {
+    margin-top: 30px;
+    padding: 15px;
+    background: #eef4fa;
+    border-radius: 10px;
+}
+</style><script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("studentName").value;
+    const email = document.getElementById("studentEmail").value;
+    const grade = document.getElementById("studentGrade").value;
+    const subject = document.getElementById("studentSubject").value;
+    const type = document.getElementById("bookingType").value;
+    const date = document.getElementById("bookingDate").value;
+    const time = document.getElementById("bookingTime").value;
+
+    const phone = "2349125297297";
+
+    const message =
+        "Hello Octavian Virtual Academy!%0A%0A" +
+        "I would like to make a booking.%0A%0A" +
+        "Name:
